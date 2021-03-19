@@ -1,22 +1,9 @@
+import PropTypes from 'prop-types'; // importando propTypes para poder definir los props oblgatorios
 
 // los componentes se nombran usando el UperCamelCase
 // functionalComponents FC
 
-const PrimeraApp = ({ saludo = 'Hola, soy una prop por defecto si no se envia nada desde el componenten padre en index.js' }) => {
-
-/* -- COMUNICACIÓN ENTRE COMPONENTES 
-    saludo, es un property que nos puede enviar directamente el componente padre, esta prop podemos
-    inicializarla y podemos usarla dentro del html solo llamandola.
-*/
-    
-   /*  -- IMPRESION DE VARIABLES EN HTML
-    const saludo = 'Estamos probando como imprimir un const dentro del HTML'; 
-
-      const objeto = {
-        nombre: 'objeto',
-        apellido: 'literal',
-        edad: 23
-    } */
+const PrimeraApp = ({ saludo }) => {
 
     return (
         <>
@@ -27,5 +14,11 @@ const PrimeraApp = ({ saludo = 'Hola, soy una prop por defecto si no se envia na
         </>
     )
 }
+
+PrimeraApp.propTypes = { // usando el propTypes definimos el tipo de dato de los  prop que recibimos y si son requeridos
+    saludo: PropTypes.string.isRequired // tipo de dato string y isRequerido = obligatorio
+}
+
+
 // usando el <> y wl </> podremos colocar varias lineas de html
 export default PrimeraApp;
